@@ -1,0 +1,21 @@
+{
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^21.0.3",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.3",
+    "@shelex/cypress-allure-plugin": "^2.40.2",
+    "cypress": "^13.16.0",
+    "mocha-allure-reporter": "^1.4.0",
+    "ts-loader": "^9.5.1"
+  },
+  "cypress-cucumber-preprocessor":{
+
+    "stepsDefinitions":"cypress/support/step_definitions/**/&.js"
+  },
+  "scripts": {
+    "browser:chrome": "npx cypress run --browser=chrome --headed --spec 'cypress/e2e/features/*.feature' --reporter mocha-allure-reporter",
+    "report:allure": "allure generate allure-results --clean -o allure-report && allure open  allure-report"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1"
+  }
+}
